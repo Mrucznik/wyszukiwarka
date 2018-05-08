@@ -1,0 +1,10 @@
+Szymon Gajda
+Monika Jêdrzejek
+Natalia Paluch
+£ukasz Okr¹glewski
+
+Temat: Wszykuwiarka przybli¿ona
+
+- wyszukiwanie przybli¿one i dok³adne fraz z ksi¹¿ek ze strony gutenberg.org
+- wyœwietlanie informajci o autorze, tytule, podawanie linku
+- wyœwietlane zdjêæ znalezionej ksi¹¿ki
