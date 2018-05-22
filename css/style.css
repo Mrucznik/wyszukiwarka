@@ -46,3 +46,13 @@
 .search-counter {
 	color: white;
 }
+.radio-button {
+	color:white;
+}
+.radio-button #search-close {
+	padding-right:20%;
+}
+
+.radio-button #search-exact {
+	padding-right:20%;
+}
