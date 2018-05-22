@@ -40,6 +40,9 @@
     background: #666666;
 	margin-left: 0px;
     margin-right: 0px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.search-counter {
+	color: white;
 }
