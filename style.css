@@ -41,9 +41,22 @@
 }
 
 #results_box{
-
+ background: grey;
+ height: 300px;
+ margin-left:auto;
+  margin-right:auto;
 }
 
 .book-result{
+ height: 300px;
+}
 
+.book_photo{
+	background-image: url("photo.jpg");
+	background-size: 300px;
+	 height: 300px;
+}
+.book_description{
+	background:yellow;
+	 height: 300px;
 }
