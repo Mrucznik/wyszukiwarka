@@ -1,17 +1,17 @@
-#custom-search-input{
+#custom-search-input {
     padding: 3px;
     border: solid 1px #E4E4E4;
     border-radius: 25px;
     background-color: #fff;
 }
 
-#custom-search-input input{
+#custom-search-input input {
     border: 0;
     box-shadow: none;
-	background: transparent;
+    background: transparent;
 }
 
-#custom-search-input button{
+#custom-search-input button {
     background: none;
     box-shadow: none;
     border: 0;
@@ -20,60 +20,64 @@
     border-left: solid 1px #ccc;
 }
 
-#custom-search-input button:hover{
+#custom-search-input button:hover {
     border: 0;
     box-shadow: none;
     border-left: solid 1px #ccc;
 }
 
-#custom-search-input .glyphicon-search{
+#custom-search-input .glyphicon-search {
     font-size: 23px;
 }
 
-#separator_box{
-    height:100px;
+#separator_box {
+    height: 100px;
 }
 
-#results_box{
- background: grey;
- height: 300px;
- margin-left:auto;
-  margin-right:auto;
+#results_box {
+    background: grey;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.book-result{
- height: 300px;
+.book-result {
+    height: 300px;
 }
 
-.book_photo{
-	background-image: url("photo.jpg");
-	background-size: 300px;
-	 height: 300px;
+.book_photo {
+    background-image: url("photo.jpg");
+    background-size: 300px;
+    height: 300px;
 }
-.book_description{
-	background:yellow;
-	 height: 300px;
+
+.book_description {
+    background: yellow;
+    height: 300px;
 }
 
 .container-fluid {
-	height:100%;
-    padding-top:50px;
+    height: 100%;
+    padding-top: 50px;
     background: #666666;
-	margin-left: 0px;
+    margin-left: 0px;
     margin-right: 0px;
     padding-left: 20%;
     padding-right: 20%;
 }
+
 .search-counter {
-	color: white;
+    color: white;
 }
+
 .radio-button {
-	color:white;
+    color: white;
 }
+
 .radio-button #search-close {
-	padding-right:20%;
+    padding-right: 20%;
 }
 
 .radio-button #search-exact {
-	padding-right:20%;
+    padding-right: 20%;
 }
