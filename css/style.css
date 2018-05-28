@@ -8,10 +8,10 @@
 #custom-search-input input{
     border: 0;
     box-shadow: none;
+	background: transparent;
 }
 
 #custom-search-input button{
-    margin: 2px 0 0 0;
     background: none;
     box-shadow: none;
     border: 0;
@@ -28,12 +28,6 @@
 
 #custom-search-input .glyphicon-search{
     font-size: 23px;
-}
-
-#up_box{
-    height:200px;
-    padding-top:50px;
-    background-color: #666666;
 }
 
 #separator_box{
@@ -59,4 +53,27 @@
 .book_description{
 	background:yellow;
 	 height: 300px;
+}
+
+.container-fluid {
+	height:100%;
+    padding-top:50px;
+    background: #666666;
+	margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.search-counter {
+	color: white;
+}
+.radio-button {
+	color:white;
+}
+.radio-button #search-close {
+	padding-right:20%;
+}
+
+.radio-button #search-exact {
+	padding-right:20%;
 }
