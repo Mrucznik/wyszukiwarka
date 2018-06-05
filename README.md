@@ -6,6 +6,7 @@
 
 ## Aby uruchomić 
 - FLASK_APP=hello.py flask run
+- lub env FLASK_APP=hello.py flask run
 
 
 # Cel
