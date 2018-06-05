@@ -5,8 +5,8 @@
 - zainstalowany flask - pip install Flask
 
 ## Aby uruchomić 
-- FLASK_APP=hello.py flask run
-- lub env FLASK_APP=hello.py flask run
+- FLASK_APP=app.py flask run
+- lub env FLASK_APP=app.py flask run
 
 
 # Cel
