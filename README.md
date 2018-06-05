@@ -1,4 +1,14 @@
-Cel
+# Jak uruchomić stronę:
+
+## Zależności
+- Python 3.6
+- zainstalowany flask - pip install Flask
+
+## Aby uruchomić 
+- FLASK_APP=hello.py flask run
+
+
+# Cel
 Celem zadania jest przetestowanie mechanizmów wyszukiwania przybliżonego w tekście oraz zaprojektowanie wyszukiwarki.
 
 Przygotowanie
