@@ -2,11 +2,12 @@
 
 ## Zależności
 - Python 3.6
-- zainstalowany flask - pip install Flask
+- pip install aiohttp
+- pip install cchardet
+- pip install aiodns
 
 ## Aby uruchomić 
-- FLASK_APP=app.py flask run
-- lub env FLASK_APP=app.py flask run
+- python main.py
 
 
 # Cel
