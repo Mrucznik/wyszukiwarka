@@ -2,7 +2,7 @@
 import pathlib
 from aiohttp import web
 import aiohttp_jinja2
-from searchEngine import search_for
+from source.searchEngine import search_for
 
 
 PROJECT_ROOT = pathlib.Path(__file__).parent.parent

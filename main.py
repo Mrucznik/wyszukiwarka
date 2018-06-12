@@ -30,7 +30,7 @@ def main(argv):
 
     web.run_app(app,
                 host='localhost',
-                port=80)
+                port=8080)
 
 
 if __name__ == '__main__':
