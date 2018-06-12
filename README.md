@@ -5,6 +5,7 @@
 - pip install aiohttp
 - pip install cchardet
 - pip install aiodns
+- pip install aiohttp-jinja2
 
 ## Aby uruchomić 
 - python main.py
