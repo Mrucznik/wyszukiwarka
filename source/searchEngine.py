@@ -12,7 +12,7 @@ async def fetch(url, session, search_text):
     async with session.get(url) as response:
         response = await response.read()
     found = str(response).find(search_text)
-    return {'text': response, 'found': found != -1, 'url': url, 'w': found}
+    return {'text': response, 'found': found != -1, 'url': url, 'pos': found}
 
 
 async def run(r, search_text):
