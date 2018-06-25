@@ -23,8 +23,7 @@
         <div class="col-lg-12 text-center">
             <div id="custom-search-input">
                 <div class="input-group col-md-12" style="background-color: transparent;">
-                    <input id="search-input" type="text" class="form-control input-lg"
-                           placeholder="Wpisz wyszukiwaną frazę"/>
+                    <input id="search-input" type="text" class="form-control input-lg" placeholder="Wpisz wyszukiwaną frazę" onkeypress="onenter(event);"/>
                     <span class="input-group-btn">
                         <button id="search_button" class="btn btn-info btn-lg" type="button" onclick="send();">
                             <i class="glyphicon glyphicon-search"></i>
@@ -56,22 +55,7 @@
 </div>
 
 <div id="results_box" class="container">
-    <div class="row book-result">
-        <div class="col-md-2 book_photo">
-        </div>
-        <div class="col-md-10 book_description">
-            <h2>Desert Rose</h2>
-            <h3>Waris Dire</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam magna dui, eleifend in condimentum non,
-                vulputate at augue. Donec maximus euismod nibh, non faucibus felis posuere non. Vestibulum vel velit
-                accumsan, luctus libero nec, dictum felis. Nunc eu tellus eu felis congue lacinia. Ut mollis sem mauris.
-                Phasellus pellentesque, massa non elementum semper, tellus lectus pellentesque risus, vel vestibulum
-                diam quam non sem. Ut elit mi, mattis vitae lacus at, lobortis sollicitudin mi. </p>
-            <br/>
-            <br/>
-            <a href="#"><p><b>Więcej ></b></p></a>
-        </div>
-    </div>
+
 </div>
 
 <!-- Search on enter script -->
@@ -129,6 +113,12 @@
 
     function writeMessage(text) {
         results_box.innerHTML += "<br/>" + text;
+    }
+
+    function onenter(e){
+        if(e.keyCode === 13){
+            send();
+        }
     }
 </script>
 </body>

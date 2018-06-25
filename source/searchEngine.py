@@ -1,11 +1,36 @@
 import asyncio
 from aiohttp import ClientSession
+import re
+import base64
 
 async def fetch(url, session, search_text):
     async with session.get(url) as response:
-        response = await response.read()
-    found = str(response).find(search_text)
-    return {'text': response, 'found': found != -1, 'url': url, 'pos': found}
+        text_response = await response.text()
+    found = text_response.find(search_text)
+    if found:
+        title = get_title(text_response)
+        author = get_author(text_response)
+
+        return {'found': found != -1, 'author': author, 'title': title, 'text': text_response, 'url': url, 'pos': found}
+    else:
+        return {'found': False}
+
+
+def get_title(text):
+    title_regexp = re.search(r"Title: (.*?)(\r|\n)", text)
+    if title_regexp:
+        return title_regexp.group(1)
+    else:
+        return "Unknown"
+
+
+def get_author(text):
+    author_regexp = re.search(r"Author: (.*?)(\r|\n)", text)
+    if author_regexp:
+        return author_regexp.group(1)
+    else:
+        return "Unknown"
+
 
 async def run(r, search_text):
     url = "http://www.gutenberg.org/files/{0}/{0}.txt"
