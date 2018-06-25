@@ -26,7 +26,7 @@
                     <input id="search-input" type="text" class="form-control input-lg"
                            placeholder="Wpisz wyszukiwaną frazę"/>
                     <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button" onclick="send();">
+                        <button id="search_button" class="btn btn-info btn-lg" type="button" onclick="send();">
                             <i class="glyphicon glyphicon-search"></i>
                         </button>
                     </span>
@@ -73,6 +73,16 @@
         </div>
     </div>
 </div>
+
+<!-- Search on enter script -->
+<script>
+    var search_button = $("#search_button");
+    search_button.keyup(function (event) {
+        if (event.keyCode === 13) { //13-enter
+            search_button.click();
+        }
+    });
+</script>
 
 <!-- Script to utilise the WebSocket -->
 <script type="text/javascript">
