@@ -125,3 +125,8 @@ span:last-child  {
     font-weight: normal;
 }
 
+mark{
+    background: orange;
+    color: black;
+}
+

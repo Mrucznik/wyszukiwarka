@@ -3,26 +3,30 @@ from aiohttp import ClientSession
 import re
 
 async def fetch(url, session, search_text):
+    global response_id
     async with session.get(url) as response:
         text_response = await response.text()
 
+    regexp = re.compile("\W" + search_text.replace(" ", r"(\s|(\r\n)|\n)") + "\W")
     beginning = text_response.find("Character set encoding:")+30
     book_text = text_response[beginning:]
 
-    found = book_text.find(search_text)
+    found = regexp.search(book_text)
     if found:
+        beginning = found.start()
+        end = found.end()
         title = get_title(text_response)
         author = get_author(text_response)
 
-        output_text = book_text[get_presentence(book_text, found):get_postsentence(book_text, found)]
+        output_text = book_text[get_presentence(book_text, beginning):get_postsentence(book_text, end)]
         return {
-            'found': found != -1,
+            'found': True,
             'author': author,
             'title': title,
             'text': output_text,
             'url': url,
-            'pos': found,
-            'line_number': get_line_number(text_response, found)
+            'pos': beginning,
+            'line_number': get_line_number(text_response, beginning)
         }
     else:
         return {'found': False}

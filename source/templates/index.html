@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
     <link rel="stylesheet" href="../../public/css/style.css">
     <link rel="stylesheet" href="../../public/css/responsive.css">
     <script src="../../public/scripts/autocompletion.js">
@@ -71,6 +72,7 @@
 <!-- Script to utilise the WebSocket -->
 <script type="text/javascript">
     var webSocket;
+    var searchedText;
     const results_box = document.getElementById("results_box");
 
     function openSocket() {
@@ -108,11 +110,14 @@
      * Sends the value of the text input to the server
      */
     function send() {
-        webSocket.send(document.getElementById("search-input").value);
+        searchedText = document.getElementById("search-input").value;
+        webSocket.send(searchedText);
     }
 
     function writeMessage(text) {
         results_box.innerHTML += "<br/>" + text;
+        $("pre").unmark(searchedText, {'separateWordSearch': false});
+        $("pre").mark(searchedText, {'separateWordSearch': false});
     }
 
     function onenter(e){
