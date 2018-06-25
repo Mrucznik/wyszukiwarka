@@ -6,14 +6,38 @@ import base64
 async def fetch(url, session, search_text):
     async with session.get(url) as response:
         text_response = await response.text()
+
     found = text_response.find(search_text)
     if found:
         title = get_title(text_response)
         author = get_author(text_response)
 
-        return {'found': found != -1, 'author': author, 'title': title, 'text': text_response, 'url': url, 'pos': found}
+        output_text = text_response[get_presentence(text_response, found):get_postsentence(text_response, found)]
+        return {'found': found != -1, 'author': author, 'title': title, 'text': output_text, 'url': url, 'pos': found}
     else:
         return {'found': False}
+
+
+def get_postsentence(text, position):
+    pos = 0
+    found_newlines = 0
+    for c in text[position:]:
+        pos += 1
+        if "\r" in c:
+            found_newlines += 1
+            if found_newlines == 2:
+                return position+pos-1
+
+
+def get_presentence(text, position):
+    pos = 0
+    found_newlines = 0
+    for c in reversed(text[:position]):
+        pos += 1
+        if "\r" in c:
+            found_newlines += 1
+            if found_newlines == 2:
+                return position-pos+1
 
 
 def get_title(text):
