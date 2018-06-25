@@ -39,7 +39,8 @@ async def websocket_search(request):
                 await ws.send_str('Szukam...')
                 for found in await search_for(msg.data):
                     if found and found['found']:
-                        await ws.send_str("Znaleziono na pozycji {}, <a href=\"{}\">link</a><br/>".format(found['pos'], found['url']))
+                        response = str(aiohttp_jinja2.render_string("book.html", request, found))
+                        await ws.send_str(response)
                 await ws.send_str('Koniec.')
         elif msg.type == WSMsgType.ERROR:
             print('ws connection closed with exception %s' %
