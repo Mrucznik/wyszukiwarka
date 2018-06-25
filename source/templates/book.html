@@ -4,7 +4,11 @@
     <div class="col-md-10 book_description">
         <h2>{{ title }}</h2>
         <h3>{{ author }}</h3>
-        <pre>{{ text }}</pre>
+        <pre style="counter-reset: line {{ line_number }}">
+            {% for line in text.split('\r\n') %}
+                <span>{{ line }}</span>
+            {% endfor %}
+        </pre>
         <br/>
         <br/>
         <a href="{{ url }}"><p><b>Więcej ></b></p></a>

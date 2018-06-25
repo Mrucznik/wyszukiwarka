@@ -7,13 +7,14 @@ async def fetch(url, session, search_text):
         text_response = await response.text()
 
     beginning = text_response.find("Character set encoding:")+30
-    text_response = text_response[beginning:]
-    found = text_response.find(search_text)
+    book_text = text_response[beginning:]
+
+    found = book_text.find(search_text)
     if found:
         title = get_title(text_response)
         author = get_author(text_response)
 
-        output_text = text_response[get_presentence(text_response, found):get_postsentence(text_response, found)]
+        output_text = book_text[get_presentence(book_text, found):get_postsentence(book_text, found)]
         return {
             'found': found != -1,
             'author': author,
@@ -30,7 +31,7 @@ async def fetch(url, session, search_text):
 def get_line_number(text, position):
     lines = 0
     for c in text[:position]:
-        if "\r" in c:
+        if "\n" in c:
             lines += 1
     return lines
 
@@ -40,10 +41,10 @@ def get_postsentence(text, position):
     found_newlines = 0
     for c in text[position:]:
         pos += 1
-        if "\r" in c:
+        if "\n" in c:
             found_newlines += 1
             if found_newlines == 2:
-                return position+pos-1
+                return position+pos-2
 
 
 def get_presentence(text, position):
@@ -51,7 +52,7 @@ def get_presentence(text, position):
     found_newlines = 0
     for c in reversed(text[:position]):
         pos += 1
-        if "\r" in c:
+        if "\n" in c:
             found_newlines += 1
             if found_newlines == 2:
                 return position-pos+1
