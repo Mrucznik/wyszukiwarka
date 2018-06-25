@@ -102,16 +102,26 @@ pre {
 }
 
 pre span {
-  display: block;
-  line-height: 1.5rem;
+    display: block;
+    line-height: 1.5rem;
+    font-weight: bold;
 }
 
 pre span:before {
-  counter-increment: line;
-  content: counter(line);
-  display: inline-block;
-  border-right: 1px solid #ddd;
-  padding: 0 .5em;
-  margin-right: .5em;
-  color: #888;
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 0 .5em;
+    margin-right: .5em;
+    color: #888;
 }
+
+span:first-child  {
+    font-weight: normal;
+}
+
+span:last-child  {
+    font-weight: normal;
+}
+
