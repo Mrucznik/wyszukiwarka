@@ -1,21 +1,38 @@
 import asyncio
 from aiohttp import ClientSession
 import re
-import base64
 
 async def fetch(url, session, search_text):
     async with session.get(url) as response:
         text_response = await response.text()
 
+    beginning = text_response.find("Character set encoding:")+30
+    text_response = text_response[beginning:]
     found = text_response.find(search_text)
     if found:
         title = get_title(text_response)
         author = get_author(text_response)
 
         output_text = text_response[get_presentence(text_response, found):get_postsentence(text_response, found)]
-        return {'found': found != -1, 'author': author, 'title': title, 'text': output_text, 'url': url, 'pos': found}
+        return {
+            'found': found != -1,
+            'author': author,
+            'title': title,
+            'text': output_text,
+            'url': url,
+            'pos': found,
+            'line_number': get_line_number(text_response, found)
+        }
     else:
         return {'found': False}
+
+
+def get_line_number(text, position):
+    lines = 0
+    for c in text[:position]:
+        if "\r" in c:
+            lines += 1
+    return lines
 
 
 def get_postsentence(text, position):
