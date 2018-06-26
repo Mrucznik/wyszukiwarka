@@ -116,8 +116,8 @@
 
     function writeMessage(text) {
         results_box.innerHTML += "<br/>" + text;
-        $("pre").unmark(searchedText, {'separateWordSearch': false});
-        $("pre").mark(searchedText, {'separateWordSearch': false});
+        $("pre").unmark(searchedText, {'separateWordSearch': false, 'acrossElements': true});
+        $("pre").mark(searchedText, {'separateWordSearch': false, 'acrossElements': true});
     }
 
     function onenter(e){
